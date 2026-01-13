@@ -2,7 +2,7 @@ import java.util.*;
 public class Countdigits{
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
-        int n=12345;
+        int n=sc.nextInt();
         // int a=n;
         // int count=0;
         // while(a!=0){
@@ -11,7 +11,7 @@ public class Countdigits{
         // }
         // System.out.println(count);
 
-        int digits=(int)Math.log10(n)+1;//logarithmnic approach
+        int digits=(int)Math.log10(Math.abs(n))+1;//logarithmnic approach
         System.out.println(digits);
     }
 }
