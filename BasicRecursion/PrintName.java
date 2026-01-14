@@ -6,8 +6,9 @@ public class PrintName {
     static void RecPrint(String name, int n){
         if(n==0)
             return;
-        RecPrint(name,--n);
         System.out.println(name);
+        RecPrint(name,--n);
+        
         
     }
     public static void main(String args[]){
