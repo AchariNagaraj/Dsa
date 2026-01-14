@@ -7,17 +7,17 @@ public class CharHash {
         String s="abcdabef";
         
         int[] hash=new int[26];
-        //storing
+        //storing using the asci values
         for(int i=0;i<s.length();i++){
             int asci_coded=(int)s.charAt(i)-97;
             hash[asci_coded]+=1;
         }
 
         //query
-        int q=sc.nextInt();
+        int q=sc.nextInt();//no of elements to be queried
         while(q-- !=0){
             int n=(int)sc.next().charAt(0)-97;//take the character, type convert to ascival, subtract 97 for indexing
-            
+            //fetching
             System.out.println(hash[n]);
         }
 
