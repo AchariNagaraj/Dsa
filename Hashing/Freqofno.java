@@ -1,3 +1,4 @@
+//this is called array hashing. because the max element in the array determines hash array size
 import java.util.*;// package Hashing;
 
 public class Freqofno {
@@ -6,8 +7,8 @@ public class Freqofno {
         int[] a={1,2,1,3,3};
         int[] hash=new int[13];
         //pre-storing
-        for(int i=0;i<4;i++){
-            hash[a[i]]+=1;
+        for(int x:a){
+            hash[x]+=1;
         }
 
         //fetching
