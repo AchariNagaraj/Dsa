@@ -14,7 +14,7 @@ public class BubbleSort {
                     swap=true;
                 }
             }
-            if(i==0 && swap==false){
+            if(!swap){
                 break;
             }
         }
