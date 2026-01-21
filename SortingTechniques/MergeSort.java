@@ -1,3 +1,7 @@
+//return based merge sort
+// has a diadvantage of more space
+// time complexity: O(nlogn)
+// but space complexity : O(nlogn)
 import java.util.*;
 public class MergeSort {
     static int[] merge(int [] left, int [] right){
