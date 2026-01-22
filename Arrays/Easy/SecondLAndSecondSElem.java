@@ -1,8 +1,8 @@
 public class SecondLAndSecondSElem {
     public static void main(String args[]){
-        int [] arr={4,3,5,2};
-        int max=arr[0],min=arr[0],smax=arr[0],smin=arr[0];
-        for(int i=0;i<arr.length;i++){
+        int [] arr={10,1,2};
+        int max=arr[0],min=arr[0],smax=arr[1],smin=arr[1];
+        for(int i=1;i<arr.length;i++){
             if(arr[i]>smax)
                 smax=arr[i];
             if(arr[i]>max){
