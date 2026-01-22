@@ -5,13 +5,9 @@ public class RotateArraybyK {
         int start = arr.length-k;
         int[] temp=new int[arr.length];
         for(int i=0;i<arr.length;i++){
-            if(i<k){
-                temp[i]=arr[i+start];
-            }
-            else{
-                temp[i]=arr[i-start+1];
-            }
+           temp[i]=arr[(i+start)%arr.length];//optimal code (better than if(cond)
         }
+        
         return temp;
     }
     public static void main(String args[]){
