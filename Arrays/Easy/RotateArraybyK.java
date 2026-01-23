@@ -1,5 +1,5 @@
 import java.util.Arrays;
-
+//Right rotation(clockwise)
 public class RotateArraybyK {
     static int[] rotate(int [] arr,int k){
         int start = arr.length-k;
