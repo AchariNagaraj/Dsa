@@ -2,46 +2,49 @@ import java.util.*;
 // package Arrays.Medium;
 
 public class ThreeSum {
-    static List<List<Integer>> removeDuplicate(List<List<Integer>> matrix){
-        Set<List<Integer>> seen=new LinkedHashSet<>();
-        List<List<Integer>> result=new ArrayList<>();
-
-        for(List<Integer> x: matrix){
-            List<Integer> normalized=new ArrayList<>(x);// copy the row
-            Collections.sort(normalized);
-            if(seen.add(normalized)){
-                result.add(x);
-            }
-
-        }
-        return result;
-    }
-
     static List<List<Integer>> threeSum(int [] nums){
-        List<List<Integer>> matrix=new ArrayList<>();
-        for(int i=0;i<nums.length-2;i++){
-            for(int j=i+1;j<nums.length-1;j++){
-                for(int k=j+1;k<nums.length;k++){
-                    if((nums[i]+nums[j]+nums[k])==0){
-                        matrix.add(new ArrayList<>(List.of(nums[i],nums[j],nums[k])));
-                    }
+        Arrays.sort(nums);
+        List<List<Integer>> matrix = new ArrayList<>();
+        int i;
+        for(i=0;i<nums.length-2;i++){
+            int k=i+1,j=nums.length-1;
+            if(i>0 && nums[i]==nums[i-1]){
+                continue;
+            }
+            while(k<j){
+                if(nums[k]+nums[j]==-nums[i]){
+                    matrix.add(new ArrayList<>(List.of(nums[i],nums[k],nums[j])));
+                    k++;
+                    j--;
+                    while(k>j && nums[k]==nums[k-1]) k++;
+                    while(j<k && nums[j]==nums[j+1]) j--;
+                }
+                else if(nums[k]+nums[j]<-nums[i]){
+                    k++;
+                    while(k>j && nums[k]==nums[k-1]) k++;
+                }
+                else{
+                    j--;
+                    while(j<k && nums[j]==nums[j+1]) j--;
                 }
             }
+            
         }
-
-        return removeDuplicate(matrix);
+        return matrix;
     }
 
     public static void main(String args[]){
         int [] nums=new int[6];
         Scanner sc=new Scanner(System.in);
+        
         for(int i=0;i<nums.length;i++){
             nums[i]=sc.nextInt();
         }
-        List<List<Integer>> matrix = new ArrayList<>(threeSum(nums));
-        for(List<Integer> x: matrix){
-            System.out.println(x);
+        List<List<Integer>> matrix=new ArrayList<>(threeSum(nums));
+        for(List<Integer> row: matrix){
+            System.out.println(row);
         }
+        
 
     }
 }
